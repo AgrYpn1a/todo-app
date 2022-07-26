@@ -1,6 +1,7 @@
 import type { AppProps } from 'next/app';
 import emotionReset from 'emotion-reset';
-import { Global, css } from '@emotion/react';
+import { Global, css, ThemeProvider } from '@emotion/react';
+import theme from '../lib/theme';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -8,15 +9,22 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Global
         styles={css`
           ${emotionReset}
-          *, *::after, *::before {
+          *,
+          *::after,
+          *::before {
             box-sizing: border-box;
             -moz-osx-font-smoothing: grayscale;
             -webkit-font-smoothing: antialiased;
             font-smoothing: antialiased;
           }
+          body {
+            font-family: 'Montserrat', sans-serif;
+          }
         `}
       />
-      <Component {...pageProps} />
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   );
 }
