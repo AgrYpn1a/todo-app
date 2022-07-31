@@ -19,6 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           }
           body {
             font-family: 'Montserrat', sans-serif;
+            background-color: lightgray;
           }
         `}
       />
