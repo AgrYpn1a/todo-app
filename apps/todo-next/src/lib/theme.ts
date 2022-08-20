@@ -15,8 +15,8 @@ const themeDef = {
 type ThemeDef = typeof themeDef;
 
 declare module '@mui/material/styles' {
-  interface Theme extends ThemeDef {}
-  interface ThemeOptions extends Theme {}
+  export interface Theme extends ThemeDef {}
+  export interface ThemeOptions extends Theme {}
 }
 
 export default createTheme(themeDef);

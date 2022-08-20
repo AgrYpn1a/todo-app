@@ -1,5 +1,4 @@
 import * as React from 'react';
-import type { NextPage } from 'next';
 import Sidebar from '../components/Sidebar';
 import { styled } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
@@ -8,6 +7,8 @@ import Cards from '../components/Cards';
 import { useState } from 'react';
 import { drawerWidth } from '../components/Sidebar/Sidebar';
 import AppBar from '../components/AppBar';
+import useAuth from 'src/lib/hooks/useAuth';
+import { useEffect } from 'react';
 
 const Main = styled('main', { shouldForwardProp: prop => prop !== 'open' })<{
   open?: boolean;
@@ -34,8 +35,10 @@ const HeaderOffset = styled('div')(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-const Home: NextPage = () => {
+const Todo = () => {
+  const { auth } = useAuth();
   const [open, setOpen] = useState(false);
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -43,6 +46,10 @@ const Home: NextPage = () => {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  useEffect(() => {
+    console.log('auth = ', auth);
+  }, [auth]);
 
   return (
     <>
@@ -63,4 +70,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default Todo;

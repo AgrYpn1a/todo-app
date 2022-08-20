@@ -1,9 +1,11 @@
+import React from 'react';
 import type { AppProps } from 'next/app';
 import emotionReset from 'emotion-reset';
-import { Global, css, ThemeProvider } from '@emotion/react';
+import { css, Global, ThemeProvider } from '@emotion/react';
 import theme from '../lib/theme';
+import { AuthProvider } from 'src/lib/contexts/AuthContext';
 
-function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Global
@@ -19,15 +21,16 @@ function MyApp({ Component, pageProps }: AppProps) {
           }
           body {
             font-family: 'Montserrat', sans-serif;
-            background-color: lightgray;
           }
         `}
       />
       <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
+        <AuthProvider>
+          <Component {...pageProps} />
+        </AuthProvider>
       </ThemeProvider>
     </>
   );
-}
+};
 
 export default MyApp;

@@ -1,6 +1,7 @@
 {
   "files.exclude": {
     "**/node_modules": true,
+    "**/.next": true,
     "**/dist": true,
     "**/_next": true,
     "**/functions/lib": true
@@ -9,5 +10,5 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "eslint.validate": ["javascript"]
+  "eslint.validate": ["typescript"]
 }
