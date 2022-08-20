@@ -2,8 +2,8 @@ import React from 'react';
 import type { AppProps } from 'next/app';
 import emotionReset from 'emotion-reset';
 import { css, Global, ThemeProvider } from '@emotion/react';
-import theme from '../lib/theme';
-import { AuthProvider } from 'src/lib/contexts/AuthContext';
+import theme from '@lib/theme';
+import { AuthProvider } from '@lib/contexts/AuthContext';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (

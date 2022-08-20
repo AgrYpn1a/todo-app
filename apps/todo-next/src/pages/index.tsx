@@ -3,8 +3,8 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { Box, CircularProgress, Typography } from '@mui/material';
-import SignIn from 'src/components/SingIn';
-import useAuth from 'src/lib/hooks/useAuth';
+import SignIn from '@c/SingIn';
+import useAuth from '@lib/hooks/useAuth';
 
 const Home = () => {
   const { loading, auth } = useAuth();

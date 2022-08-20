@@ -1,8 +1,12 @@
 {
   "extends": "@todo-app/tsconfig/nextjs.conf.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "noEmit": true
+    "baseUrl": "./src",
+    "noEmit": true,
+    "paths": {
+      "@c/*": ["components/*"],
+      "@lib/*": ["lib/*"],
+    }
   },
   "include": ["next-env.d.ts", "src/**/*"],
   "exclude": ["node_modules", ".next", ".turbo"]

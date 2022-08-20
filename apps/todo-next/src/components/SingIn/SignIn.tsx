@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { LoadingButton } from '@mui/lab';
 import GoogleIcon from '@mui/icons-material/Google';
-import useAuth from 'src/lib/hooks/useAuth';
+import useAuth from '@lib/hooks/useAuth';
 
 const SignIn = () => {
   const [loading, setLoading] = useState(false);

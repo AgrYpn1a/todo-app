@@ -1,13 +1,13 @@
 import * as React from 'react';
-import Sidebar from '../components/Sidebar';
+import Sidebar from '@c/Sidebar';
+import { drawerWidth } from '@c/Sidebar/Sidebar';
 import { styled } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
 import { Box } from '@mui/system';
-import Cards from '../components/Cards';
+import Cards from '@c/Cards';
 import { useState } from 'react';
-import { drawerWidth } from '../components/Sidebar/Sidebar';
-import AppBar from '../components/AppBar';
-import useAuth from 'src/lib/hooks/useAuth';
+import AppBar from '@c/AppBar';
+import useAuth from '@lib/hooks/useAuth';
 import { useEffect } from 'react';
 
 const Main = styled('main', { shouldForwardProp: prop => prop !== 'open' })<{
