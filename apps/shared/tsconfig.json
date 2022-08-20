@@ -1,0 +1,9 @@
+{
+  "extends": "@todo-app/tsconfig/base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "noEmit": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}
