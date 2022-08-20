@@ -36,7 +36,7 @@ const HeaderOffset = styled('div')(({ theme }) => ({
 }));
 
 const Todo = () => {
-  const { loading, auth } = useAuth();
+  const { auth } = useAuth();
   const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {

@@ -6,7 +6,6 @@ import theme from '../lib/theme';
 import { AuthProvider } from 'src/lib/contexts/AuthContext';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-  const a = 3;
   return (
     <>
       <Global

@@ -1,11 +1,10 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import Image from 'next/image';
 import { styled } from '@mui/material/styles';
 import { IconButton, Toolbar, Typography } from '@mui/material';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import useAuth from 'src/lib/hooks/useAuth';
 
 interface AppBarWrapperProps extends MuiAppBarProps {
   open?: boolean;
