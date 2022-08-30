@@ -10,7 +10,8 @@
     "shell": "npm run build && firebase functions:shell",
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
+    "logs": "firebase functions:log",
+    "preinstall": "if [ -d ../../packages/config ] && [ -d ../../packages/tsconfig ]; then npm pack ../../packages/config ../../packages/tsconfig; fi"
   },
   "engines": {
     "node": "16"
@@ -21,8 +22,8 @@
     "firebase-functions": "^3.18.0"
   },
   "devDependencies": {
-    "@todo-app/config": "*",
-    "@todo-app/tsconfig": "*",
+    "@todo-app/config": "file:todo-app-config-0.0.0.tgz",
+    "@todo-app/tsconfig": "file:todo-app-tsconfig-0.0.0.tgz",
     "@typescript-eslint/eslint-plugin": "^5.12.0",
     "@typescript-eslint/parser": "^5.12.0",
     "eslint": "^8.9.0",

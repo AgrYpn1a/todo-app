@@ -5,6 +5,7 @@ import { IconButton, Toolbar, Typography } from '@mui/material';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import UserAvatar from './UserAvatar';
 
 interface AppBarWrapperProps extends MuiAppBarProps {
   open?: boolean;
@@ -66,9 +67,10 @@ const AppBar: FC<AppBarProps> = ({
             marginRight: '0.5rem',
           }}
         />
-        <Typography variant="h6" noWrap component="div">
+        <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
           <span style={{ fontWeight: 600 }}>To Do</span> app
         </Typography>
+        <UserAvatar />
       </Toolbar>
     </AppBarWrapper>
   );

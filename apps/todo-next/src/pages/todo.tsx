@@ -9,6 +9,7 @@ import { useState } from 'react';
 import AppBar from '@c/AppBar';
 import useAuth from '@lib/hooks/useAuth';
 import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 const Main = styled('main', { shouldForwardProp: prop => prop !== 'open' })<{
   open?: boolean;
@@ -36,8 +37,9 @@ const HeaderOffset = styled('div')(({ theme }) => ({
 }));
 
 const Todo = () => {
-  const { auth } = useAuth();
+  const { loading, auth } = useAuth();
   const [open, setOpen] = useState(false);
+  const router = useRouter();
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -48,24 +50,34 @@ const Todo = () => {
   };
 
   useEffect(() => {
-    console.log('auth = ', auth);
+    if (!auth) {
+      router.push('/');
+    }
+    /**
+     * Excluding deps:
+     *  [router]
+     * due to infinite re-render.
+     */
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth]);
 
   return (
     <>
-      <Box sx={{ display: 'flex' }}>
-        <CssBaseline />
-        <AppBar
-          open={open}
-          handleDrawerOpen={handleDrawerOpen}
-          handleDrawerClose={handleDrawerClose}
-        />
-        <Sidebar isOpen={open} />
-        <Main open={open}>
-          <HeaderOffset />
-          <Cards sidebarWidth={open ? drawerWidth : 0} />
-        </Main>
-      </Box>
+      {!loading && auth ? (
+        <Box sx={{ display: 'flex' }}>
+          <CssBaseline />
+          <AppBar
+            open={open}
+            handleDrawerOpen={handleDrawerOpen}
+            handleDrawerClose={handleDrawerClose}
+          />
+          <Sidebar isOpen={open} />
+          <Main open={open}>
+            <HeaderOffset />
+            <Cards sidebarWidth={open ? drawerWidth : 0} />
+          </Main>
+        </Box>
+      ) : null}
     </>
   );
 };

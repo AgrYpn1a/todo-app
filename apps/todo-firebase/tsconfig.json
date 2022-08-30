@@ -1,6 +1,9 @@
 {
   "extends": "@todo-app/tsconfig/firebase.conf.json",
   "compileOnSave": true,
+  "compilerOptions": {
+    "outDir": "lib",
+  },
   "include": [
     "src"
   ]
