@@ -1,0 +1,7 @@
+{
+  "extends": "@todo-app/tsconfig/firebase.conf.json",
+  "compileOnSave": true,
+  "include": [
+    "src"
+  ]
+}
